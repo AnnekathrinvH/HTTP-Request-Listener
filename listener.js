@@ -19,11 +19,11 @@ server.on('request', function(request, response) {
 
     if (method === 'GET') {
         response.writeHead(200, {'Content-Type': 'text/html'});
-            response.write('<!doctype html>');
-            response.write('<html>');
-            response.write('<title>Hello World!</title>');
-            response.write('<p>Hello World!');
-            response.write('</html>');
+        response.write('<!doctype html>');
+        response.write('<html>');
+        response.write('<title>Hello World!</title>');
+        response.write('<p>Hello World!');
+        response.write('</html>');
         response.end('Hallo');
     }
     if (method === 'HEAD') {
@@ -36,12 +36,12 @@ server.on('request', function(request, response) {
         console.log('POST!');
         request.on('data', function(chunk) {
             body += chunk;
-            }).on('end', function() {
-                console.log(body);
-            });
+        }).on('end', function() {
+            console.log(body);
+        });
 
     } else {
-        response.writeHead(403, {'Content-Type': 'text/html'});
+        response.statusCode = 403;
         response.end();
     }
 
